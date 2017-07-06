@@ -23,13 +23,17 @@ function draw() {
 
 function mousePressed() {
   if(pajaro.mov) {
-    pajaro.resetPos();
+    gameOver();
   }
 }
 
 function keyPressed() {
-  if(keyCode === UP_ARROW) {
+  if(key === ' ') {
     pajaro.jump();
     pajaro.mov = true;
   }
+}
+
+function gameOver() {
+  pajaro.resetPos();
 }

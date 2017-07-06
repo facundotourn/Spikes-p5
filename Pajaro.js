@@ -5,8 +5,8 @@ function Pajaro(x, y) {
   this.alto = 35;
   this.velX = 4;
   this.velY = 2;
-  this.mov = false;
-  this.rebotes = 0;
+  this.mov = false; // Indica si el pájaro se está moviendo o no
+  this.rebotes = 0; // Cantidad de rebotes que dio el pájaro contra las paredes
 
   this.show = function() {
     // Dibujar un rectángulo blanco en las coordenadas (x, y)
@@ -31,9 +31,9 @@ function Pajaro(x, y) {
       this.y += this.velY;
     }
 
-    // Si el pájaro sale de la pantalla se resetea a la posición inicial
+    // Si el pájaro sale de la pantalla se termina el juego
     if(this.y > height || this.y < 0)
-      this.resetPos();
+      gameOver();
   }
 
   this.jump = function() {
@@ -41,6 +41,7 @@ function Pajaro(x, y) {
   }
 
   this.resetPos = function() {
+    //
     this.x = x;
     this.y = y;
     this.mov = false;
