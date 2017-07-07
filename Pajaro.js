@@ -10,8 +10,9 @@ function Pajaro(x, y) {
   this.show = function() {
     // Dibujar un rectángulo blanco en las coordenadas (x, y)
     fill(0, 100, 200);
-    rectMode(CORNERS);
-    rect(this.posicion.x - this.ancho / 2, this.posicion.y - this.alto / 2, this.posicion.x + this.ancho / 2, this.posicion.y + this.alto / 2);
+//    rectMode(CORNERS);
+//    rect(this.posicion.x - this.ancho / 2, this.posicion.y - this.alto / 2, this.posicion.x + this.ancho / 2, this.posicion.y + this.alto / 2);
+    rect(this.posicion.x - this.ancho / 2, this.posicion.y - this.alto / 2, this.ancho, this.alto);
   }
 
   this.update = function() {

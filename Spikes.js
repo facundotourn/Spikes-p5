@@ -1,8 +1,9 @@
 var pajaro;
+var pinche;
 var gravedad = 0.35;
 
 function setup() {
-  createCanvas(500, 750);
+  createCanvas(480, 800);
   pajaro = new Pajaro(width / 2, height / 4);
 }
 
