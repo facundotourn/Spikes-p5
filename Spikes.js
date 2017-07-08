@@ -1,13 +1,28 @@
 var pajaro;
+var pinches = [];
 var pinche;
 var pinche2;
 var gravedad = 0.35;
+var pinchesUp;
+var pinchesLeft;
+var pinchesRight;
+var pinchesDown;
 
 function setup() {
   createCanvas(480, 800);
   pajaro = new Pajaro(width / 2, height / 4);
-  pinche = new Pinche(width, height / 4, [-1, 0]);
-  pinche2 = new Pinche(0, height / 4, [1, 0]);
+  // pinche = new Pinche(width, height / 4, [-1, 0]);
+  // pinche2 = new Pinche(width / 2, height, [0, -1]);
+  //
+  // for(var i = 0; i < height / 40; i++) {
+  //   var p = new Pinche(width, 40 * i + 20, [-1, 0]);
+  //   pinches.push(p);
+  // }
+
+  pinchesUp = new FilaPinches(0, 0, [0, 1], 40);
+  pinchesLeft = new FilaPinches(0, 0, [1, 0], 40);
+  pinchesRight = new FilaPinches(width, 0, [-1, 0], 40);
+  pinchesDown = new FilaPinches(0, height, [0, -1], 40);
 }
 
 function draw() {
@@ -17,10 +32,14 @@ function draw() {
   pajaro.show();
   pajaro.update();
 
-  pinche.draw();
-  pinche.update();
-  pinche2.draw();
-  pinche2.update();
+  pinchesUp.draw();
+  pinchesUp.update();
+  pinchesDown.draw();
+  pinchesDown.update();
+  pinchesRight.draw();
+  pinchesRight.update();
+  pinchesLeft.draw();
+  pinchesLeft.update();
 }
 
 function mousePressed() {
@@ -28,12 +47,12 @@ function mousePressed() {
     gameOver();
   }
 
-  if(pinche.visible) {
-    pinche.ocultar();
-    pinche2.ocultar();
+  if(pinchesRight.pinches[0].visible) {
+    pinchesRight.ocultar();
+    pinchesLeft.ocultar();
   } else {
-    pinche.mostrar();
-    pinche2.mostrar();
+    pinchesLeft.mostrar();
+    pinchesRight.mostrar();
   }
 }
 
@@ -62,6 +81,8 @@ function gameOver() {
 
 function showPoints() {
   noStroke();
+  fill(75);
+  ellipse(width / 2 + 15, height / 2 + 15, width * 0.52, width * 0.52);
   fill(255);
   ellipse(width / 2, height / 2, width * 0.50, width * 0.50);
   textSize(150);

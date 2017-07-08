@@ -5,10 +5,25 @@ function Pinche(x, y, orientacion) {
   this.arista = 40;
   this.visible = false;
 
-  this.p1 = [this.x, this.y + this.arista * 0.5];
-  this.p2 = [this.x, this.y - this.arista * 0.5];
-  this.p3 = [this.x - this.arista * 0.7, this.y];
-
+  if(this.orientacion[1] == 0) {
+    if(this.orientacion[0] == 1) {
+      this.p1 = [this.x, this.y + this.arista * 0.5];
+      this.p2 = [this.x, this.y - this.arista * 0.5];
+      this.p3 = [this.x + this.arista * 0.7, this.y];
+    } else {
+      this.p1 = [this.x, this.y + this.arista * 0.5];
+      this.p2 = [this.x, this.y - this.arista * 0.5];
+      this.p3 = [this.x - this.arista * 0.7, this.y];
+    }
+  } else if(this.orientacion[1] == 1) {
+    this.p1 = [this.x + this.arista * 0.5, this.y];
+    this.p2 = [this.x - this.arista * 0.5, this.y];
+    this.p3 = [this.x, this.y + this.arista * 0.7];
+  } else {
+    this.p1 = [this.x + this.arista * 0.5, this.y];
+    this.p2 = [this.x - this.arista * 0.5, this.y];
+    this.p3 = [this.x, this.y - this.arista * 0.7];
+  }
 
   this.draw = function() {
     fill(255);
@@ -57,8 +72,8 @@ function Pinche(x, y, orientacion) {
   }
 
   this.calcularPuntos = function() {
-    if(orientacion[1] == 0) {
-      if(orientacion[0] == 1) {
+    if(this.orientacion[1] == 0) {
+      if(this.orientacion[0] == 1) {
         this.p1 = [this.x, this.y + this.arista * 0.5];
         this.p2 = [this.x, this.y - this.arista * 0.5];
         this.p3 = [this.x + this.arista * 0.7, this.y];
@@ -67,6 +82,14 @@ function Pinche(x, y, orientacion) {
         this.p2 = [this.x, this.y - this.arista * 0.5];
         this.p3 = [this.x - this.arista * 0.7, this.y];
       }
+    } else if(this.orientacion[1] == 1) {
+      this.p1 = [this.x + this.arista * 0.5, this.y];
+      this.p2 = [this.x - this.arista * 0.5, this.y];
+      this.p3 = [this.x, this.y + this.arista * 0.7];
+    } else {
+      this.p1 = [this.x + this.arista * 0.5, this.y];
+      this.p2 = [this.x - this.arista * 0.5, this.y];
+      this.p3 = [this.x, this.y - this.arista * 0.7];
     }
   }
 }
