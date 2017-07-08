@@ -10,8 +10,7 @@ function Pajaro(x, y) {
   this.show = function() {
     // Dibujar un rectángulo blanco en las coordenadas (x, y)
     fill(0, 100, 200);
-    rectMode(CORNERS);
-    rect(this.posicion.x - this.ancho / 2, this.posicion.y - this.alto / 2, this.posicion.x + this.ancho / 2, this.posicion.y + this.alto / 2);
+    rect(this.posicion.x - this.ancho / 2, this.posicion.y - this.alto / 2, this.ancho, this.alto);
   }
 
   this.update = function() {
@@ -19,6 +18,14 @@ function Pajaro(x, y) {
     if(this.posicion.x + this.ancho / 2 > width || this.posicion.x - this.ancho / 2 < 0) {
       this.vel.x = -this.vel.x;
       this.rebotes++;
+
+      if(this.vel.x > 0) {
+        pinchesRight.mostrar();
+        pinchesLeft.ocultar();
+      } else {
+        pinchesRight.ocultar();
+        pinchesLeft.mostrar();
+      }
     }
 
     if(this.mov) {
