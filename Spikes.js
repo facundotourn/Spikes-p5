@@ -46,14 +46,6 @@ function mousePressed() {
   if(pajaro.mov) {
     gameOver();
   }
-
-  if(pinchesRight.pinches[0].visible) {
-    pinchesRight.ocultar();
-    pinchesLeft.ocultar();
-  } else {
-    pinchesLeft.mostrar();
-    pinchesRight.mostrar();
-  }
 }
 
 function keyPressed() {

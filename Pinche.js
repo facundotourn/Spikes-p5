@@ -26,7 +26,7 @@ function Pinche(x, y, orientacion) {
   }
 
   this.draw = function() {
-    fill(255);
+    fill(255, 220, 220);
     noStroke();
     triangle(this.p1[0], this.p1[1], this.p2[0], this.p2[1], this.p3[0], this.p3[1]);
   }
@@ -60,6 +60,10 @@ function Pinche(x, y, orientacion) {
           this.calcularPuntos();
         }
       }
+    }
+
+    if(orientacion[1] == 0 && pajaro.rebotes == 0) {
+      this.ocultar();
     }
   }
 

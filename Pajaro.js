@@ -10,13 +10,13 @@ function Pajaro(x, y) {
   this.show = function() {
     // Dibujar un rectángulo blanco en las coordenadas (x, y)
     fill(0, 100, 200);
-    rect(this.posicion.x - this.ancho / 2, this.posicion.y - this.alto / 2, this.ancho, this.alto);
+    rect(this.posicion.x - this.ancho / 2, this.posicion.y - this.alto / 2, this.ancho, this.alto, 10);
   }
 
   this.update = function() {
     // Si la posición en x del pajaro se va muy para la izquierda o muy para la derecha se invierte el sentido de la velocidad
     if(this.posicion.x + this.ancho / 2 > width || this.posicion.x - this.ancho / 2 < 0) {
-      this.vel.x = -this.vel.x;
+      this.vel.x = -this.vel.x * 1.01;
       this.rebotes++;
 
       if(this.vel.x > 0) {
@@ -52,6 +52,7 @@ function Pajaro(x, y) {
     this.posicion.y = y;
     this.mov = false;
     this.rebotes = 0;
+    this.vel.x = 4;
   }
 
 
