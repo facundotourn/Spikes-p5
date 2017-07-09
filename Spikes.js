@@ -7,6 +7,7 @@ var pinchesUp;
 var pinchesLeft;
 var pinchesRight;
 var pinchesDown;
+var puntaje;
 
 function setup() {
   createCanvas(480, 800);
@@ -23,6 +24,7 @@ function setup() {
   pinchesLeft = new FilaPinches(0, 0, [1, 0], 40);
   pinchesRight = new FilaPinches(width, 0, [-1, 0], 40);
   pinchesDown = new FilaPinches(0, height, [0, -1], 40);
+  puntaje = pajaro.rebotes;
 }
 
 function draw() {
@@ -68,6 +70,7 @@ function touchStarted() {
 }
 
 function gameOver() {
+
   pajaro.resetPos();
 }
 
@@ -81,5 +84,9 @@ function showPoints() {
   textAlign(CENTER, CENTER);
   textFont("Courier New");
   fill(130)
-  text(pajaro.rebotes, width / 2, height / 2);
+  if(pajaro.mov == true)
+    text(pajaro.rebotes, width / 2, height / 2);
+  else {
+    text(puntaje, width / 2, height / 2);
+  }
 }
