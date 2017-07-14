@@ -54,6 +54,7 @@ function keyPressed() {
   if(key === ' ') {
     pajaro.jump();
     pajaro.mov = true;
+    puntaje = pajaro.rebotes;
   }
 
   if(key == 'a') {

@@ -58,9 +58,14 @@ function FilaPinches(x, y, orientacion, arista) {
   }
 
   this.mostrar = function() {
-    for(var i = 0; i < this.pinches.length; i++) {
-      if(random(1) < 0.4)
-        this.pinches[i].visible = true;
+    if(pajaro.rebotes / 4 + 5 < this.pinches.length * 0.75) {
+      var max = pajaro.rebotes / 4 + 5;
+    } else {
+      var max = 15;
+    }
+    for(var i = 0; i < max; i++) {
+      var index = floor(random(0, this.pinches.length - 1));
+      this.pinches[index].visible = true;
     }
   }
 }
