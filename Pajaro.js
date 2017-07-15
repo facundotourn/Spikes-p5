@@ -27,8 +27,8 @@ function Pajaro(x, y) {
       this.rebotes++;
       puntaje = this.rebotes;
 
-      var i = floor((this.posicion.y + this.alto / 2) / 40 - 1);
-      var j = floor((this.posicion.y - this.alto / 2) / 40 - 1);
+      var i = floor((this.posicion.y + this.alto / 2 - 3) / 40 - 1);
+      var j = floor((this.posicion.y - this.alto / 2 + 3) / 40 - 1);
       //console.log(i + ", " + j);
 
       if(j == -1)

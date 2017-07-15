@@ -58,8 +58,8 @@ function FilaPinches(x, y, orientacion, arista) {
   }
 
   this.mostrar = function() {
-    if(pajaro.rebotes / 4 + 5 < this.pinches.length * 0.75) {
-      var max = pajaro.rebotes / 4 + 5;
+    if(pajaro.rebotes / 4 + 4 < this.pinches.length * 0.75) {
+      var max = floor(pajaro.rebotes / 7) + 4;
     } else {
       var max = 15;
     }
