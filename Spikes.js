@@ -9,6 +9,12 @@ var pinchesRight;
 var pinchesDown;
 var puntaje;
 
+function preload() {
+  
+  soundFormats('mp3', 'ogg');
+  mySound = loadSound('Crazy Realistic Knocking Sound (Troll Twitch Streamers).mp3');  
+}
+
 function setup() {
   createCanvas(480, 800);
   pajaro = new Pajaro(width / 2, height / 4);
@@ -25,6 +31,9 @@ function setup() {
   pinchesRight = new FilaPinches(width, 0, [-1, 0], 40);
   pinchesDown = new FilaPinches(0, height, [0, -1], 40);
   puntaje = pajaro.rebotes;
+  
+  mySound.setVolume(0.5);
+  mySound.play();
 }
 
 function draw() {
