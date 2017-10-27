@@ -8,6 +8,7 @@ var pinchesLeft;
 var pinchesRight;
 var pinchesDown;
 var puntaje;
+var i;
 
 function preload() {
   
@@ -31,7 +32,9 @@ function setup() {
   pinchesRight = new FilaPinches(width, 0, [-1, 0], 40);
   pinchesDown = new FilaPinches(0, height, [0, -1], 40);
   puntaje = pajaro.rebotes;
-  
+}
+
+function playSound() {
   mySound.setVolume(0.5);
   mySound.play();
 }
@@ -51,6 +54,12 @@ function draw() {
   pinchesRight.update();
   pinchesLeft.draw();
   pinchesLeft.update();
+  
+  i++;
+  
+  if(i > 60*5) {
+    playSound();
+  }
 }
 
 function mousePressed() {
